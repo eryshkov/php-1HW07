@@ -14,6 +14,13 @@ class View
         $this->storage[$name] = $value;
     }
 
+    protected function putAtBuffer($template):void
+    {
+        ob_start( null,null,PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_REMOVABLE);
+        $data = serialize($this->storage[$template]);
+        echo $data;
+    }
+
     public function display(string $template):void
     {
         echo $this->render($template);
@@ -21,6 +28,7 @@ class View
 
     public function render(string $template):string
     {
+        $this->putAtBuffer($template);
         return include  TEMPLATES_FOLDER . $template;
     }
 }
