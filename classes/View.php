@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/../constants.php';
 
 class View
 {
@@ -6,10 +7,20 @@ class View
     /**
      * @var []
      */
-    public $storage;
+    protected $storage;
 
-    public function assign($name, $value): void
+    public function assign(string $name, string $value): void
     {
         $this->storage[$name] = $value;
-}
+    }
+
+    public function display(string $template):void
+    {
+        echo $this->render($template);
+    }
+
+    public function render(string $template):string
+    {
+        return include  TEMPLATES_FOLDER . $template;
+    }
 }
