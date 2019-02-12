@@ -9,7 +9,7 @@ class View
      */
     protected $storage;
 
-    public function assign(string $name, string $value): void
+    public function assign(string $name, $value): void
     {
         $this->storage[$name] = $value;
     }

@@ -4,7 +4,7 @@ ob_clean();
 ?>
 
     <!--Template goes here-->
-<?php echo $data . '=='; ?>
+<?php var_dump($data); ?>
 
 <?php $templateText = ob_get_contents();
 ob_end_clean();
