@@ -14,11 +14,10 @@ class View
         $this->storage[$name] = $value;
     }
 
-    protected function putAtBuffer($template):void
+    public function render(string $template):string
     {
-        ob_start( null,null,PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_REMOVABLE);
-        $data = serialize($this->storage[$template]);
-        echo $data;
+        $this->putAtBuffer($template);
+        return include  TEMPLATES_FOLDER . $template;
     }
 
     public function display(string $template):void
@@ -26,9 +25,10 @@ class View
         echo $this->render($template);
     }
 
-    public function render(string $template):string
+    protected function putAtBuffer($template):void
     {
-        $this->putAtBuffer($template);
-        return include  TEMPLATES_FOLDER . $template;
+        ob_start( null,null,PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_REMOVABLE);
+        $data = serialize($this->storage[$template]);
+        echo $data;
     }
 }
