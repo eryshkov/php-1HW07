@@ -15,7 +15,7 @@
 <body>
 <p></p>
 <div class="container">
-    <a href="/01_gallery/" class="btn btn-primary">01</a>
+    <a href="/01_guestbook/" class="btn btn-primary">01</a>
     <a href="/02" class="btn btn-primary">02</a>
     <a href="/test.php" class="btn btn-primary">Test</a>
 
