@@ -9,6 +9,11 @@ class View
      */
     protected $storage;
 
+    public function __construct(string $name, $value)
+    {
+        $this->assign($name, $value);
+    }
+
     public function assign(string $name, $value): void
     {
         $this->storage[$name] = $value;
