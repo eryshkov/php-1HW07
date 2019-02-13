@@ -20,4 +20,6 @@ class Article
     {
         return $this->shortText;
     }
+
+
 }
