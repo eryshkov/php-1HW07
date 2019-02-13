@@ -14,9 +14,10 @@ class View
         $this->assign($name, $value);
     }
 
-    public function assign(string $name, $value): void
+    public function assign(string $name, $value): View
     {
         $this->storage[$name] = $value;
+        return $this;
     }
 
     public function render(string $template):string
@@ -25,9 +26,10 @@ class View
         return include  TEMPLATES_FOLDER . $template;
     }
 
-    public function display(string $template):void
+    public function display(string $template):View
     {
         echo $this->render($template);
+        return $this;
     }
 
     protected function putAtBuffer($template):void
