@@ -17,7 +17,7 @@
 <div class="container">
     <a href="/01_guestbook/" class="btn btn-primary">01 GuestBook</a>
     <a href="/02_gallery/" class="btn btn-primary">02 Gallery</a>
-    <a href="/test.php" class="btn btn-primary">Test</a>
+    <a href="/03_news/news.php" class="btn btn-primary">03 News</a>
 
 </div>
 </body>
