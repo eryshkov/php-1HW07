@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/Article.php';
-require_once __DIR__ . '/../constants.php';
 
 class News
 {

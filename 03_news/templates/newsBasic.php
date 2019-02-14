@@ -1,10 +1,8 @@
 <?php
-include_once __DIR__ . '/../03_news/constants.php';
 include_once __DIR__ . '/../03_news/classes/Article.php';
 
 $serializedData = ob_get_contents();
-
-$article = unserialize($serializedData, ['allowed_classes' => true]);
+$articles = unserialize($serializedData, ['allowed_classes' => true]);
 
 ob_clean();
 ?>
@@ -22,17 +20,29 @@ ob_clean();
                 integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
                 crossorigin="anonymous"></script>
 
-        <title>Article</title>
+        <title>News</title>
     </head>
     <body>
     <p></p>
     <div class="container">
-        <h1><?php echo $article->getShortText(); ?></h1>
-        <div class="row">
-            <div class="col">
-                <?php echo $article->getFullText(); ?>
+        <h1>News</h1>
+        <?php foreach ($articles as $newsID => $article) {
+            ?>
+            <div class="row">
+                <div class="col">
+                    <a href="<?php echo '/03_news/article.php?id=' . $newsID; ?>">
+                        News <?php echo $newsID + 1;?></a>
+                    <div class="row">
+                        <div class="col">
+                            <?php echo $article->getShortText(); ?>
+                            <br>&nbsp;
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
     </body>
     </html>
