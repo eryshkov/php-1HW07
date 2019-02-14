@@ -1,5 +1,5 @@
 <?php $serializedData = ob_get_contents();
-$data = unserialize($serializedData, ['allowed_classes' => false]);
+$data = unserialize($serializedData, ['allowed_classes' => true]);
 ob_clean();
 ?>
 
