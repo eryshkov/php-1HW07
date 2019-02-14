@@ -25,5 +25,5 @@ if (checkPassword($userName, $userPassword)) {
     exit();
 }
 
-$view = new View('galleryLogin.php', '/02_gallery/');
-$view->display('galleryLogin.php');
+$view = new View();
+$view->display(__DIR__ . '/templates/galleryLogin.php');

@@ -23,13 +23,14 @@ foreach ($dirContents as $item) {
 
 }
 
-$data['userName'] = $userName;
-$data['images'] = $images;
-$data['pathToImagesFolder'] = $pathToImagesFolder;
-$data['urlToImagesFolder'] = $urlToImagesFolder;
 
-$view = new View('galleryBasic.php', $data);
-$view->display('galleryBasic.php');
+$view = new View();
+$view->assign('userName', $userName);
+$view->assign('images', $images);
+$view->assign('pathToImagesFolder', $pathToImagesFolder);
+$view->assign('urlToImagesFolder', $urlToImagesFolder);
+
+$view->display(__DIR__. '/templates/galleryBasic.php');
 
 
 

@@ -1,9 +1,4 @@
-<?php $serializedData = ob_get_contents();
-$rootURL = unserialize($serializedData, ['allowed_classes' => true]);
-ob_clean();
-?>
-
-    <!doctype html>
+<!doctype html>
     <html lang="ru">
     <head>
         <meta charset="UTF-8">
@@ -20,7 +15,7 @@ ob_clean();
     <body>
     <p></p>
     <div class="container">
-        <form action="<?php echo $rootURL . 'login.php';?>" method="post">
+        <form action="/02_gallery/login.php" method="post">
             <label>Login: </label><input type="text" name="login"><br>
             <label>Password: </label><input type="password" name="password"><br>
             <button type="submit">Login</button>
@@ -28,8 +23,3 @@ ob_clean();
     </div>
     </body>
     </html>
-
-<?php $templateText = ob_get_contents();
-ob_end_clean();
-return $templateText;
-?>
