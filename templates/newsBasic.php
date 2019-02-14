@@ -3,9 +3,8 @@ include_once __DIR__ . '/../03_news/constants.php';
 include_once __DIR__ . '/../03_news/classes/Article.php';
 
 $serializedData = ob_get_contents();
-$data = unserialize($serializedData, ['allowed_classes' => false]);
-var_dump($data);
-die;
+$articles = unserialize($serializedData, ['allowed_classes' => true]);
+
 ob_clean();
 ?>
 
@@ -26,12 +25,17 @@ ob_clean();
     </head>
     <body>
     <div class="container">
-        <div class="row">
-            <a href="<?php echo URL_ROOT . 'article.php?id=' . $newsID; ?>">
-                News <?php echo $newsID; ?></a>
-            <br>
-            <p><?php $article->getShortText(); ?></p>
-        </div>
+        <?php foreach ($articles as $newsID => $article) {
+            ?>
+            <div class="row">
+                <a href="<?php echo URL_ROOT . 'article.php?id=' . $newsID; ?>">
+                    News <?php echo $newsID; ?></a>
+                <br>
+                <p>rr</p>
+            </div>
+            <?php
+        }
+        ?>
     </div>
     </body>
     </html>
