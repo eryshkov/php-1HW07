@@ -28,10 +28,16 @@ ob_clean();
         <?php foreach ($articles as $newsID => $article) {
             ?>
             <div class="row">
-                <a href="<?php echo URL_ROOT . 'article.php?id=' . $newsID; ?>">
-                    News <?php echo $newsID; ?></a>
-                <br>
-                <p>rr</p>
+                <div class="col">
+                    <a href="<?php echo URL_ROOT . 'article.php?id=' . $newsID; ?>">
+                        News <?php echo $newsID; ?></a>
+                    <div class="row">
+                        <div class="col">
+                            <?php echo $article->getShortText(); ?>
+                            <br>&nbsp;
+                        </div>
+                    </div>
+                </div>
             </div>
             <?php
         }
