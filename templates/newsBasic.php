@@ -24,7 +24,9 @@ ob_clean();
         <title>News</title>
     </head>
     <body>
+    <p></p>
     <div class="container">
+        <h1>News</h1>
         <?php foreach ($articles as $newsID => $article) {
             ?>
             <div class="row">
