@@ -6,7 +6,7 @@ $myGuestBook = new GuestBook(__DIR__ . '/guestBook.txt');
 $guestBookRecords = $myGuestBook->getData();
 
 $view = new View();
-$view->assign('records', $guestBookRecords);
+$view->assign('guestBookRecords', $guestBookRecords);
 $view->display(__DIR__ . '/templates/guestBookBasic.php');
 
 

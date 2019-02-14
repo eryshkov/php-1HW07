@@ -2,7 +2,7 @@
 
 class View
 {
-    protected $storage;
+    protected $storage = [];
 
     public function assign(string $name, $value): View
     {
@@ -22,6 +22,9 @@ class View
 
     public function display(string $template):View
     {
+        foreach ($this->storage as $key => $value) {
+            $$key = $value;
+        }
         require_once $template;
         return $this;
     }
