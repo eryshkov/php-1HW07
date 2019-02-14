@@ -35,7 +35,7 @@ class News
         $result = [];
 
         foreach ($dataArray as $line) {
-            [$shortText, $fullText] = explode(FILE_DELIMITER, $line);
+            [$shortText, $fullText] = explode('|*|', $line);
             $article = new Article($shortText, $fullText);
             $result[] = $article;
         }

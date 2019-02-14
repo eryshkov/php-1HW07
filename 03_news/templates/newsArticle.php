@@ -1,14 +1,4 @@
-<?php
-include_once __DIR__ . '/../03_news/classes/Article.php';
-
-$serializedData = ob_get_contents();
-
-$article = unserialize($serializedData, ['allowed_classes' => true]);
-
-ob_clean();
-?>
-
-    <!doctype html>
+<!doctype html>
     <html lang="ru">
     <head>
         <meta charset="UTF-8">
@@ -35,8 +25,3 @@ ob_clean();
     </div>
     </body>
     </html>
-
-<?php $templateText = ob_get_contents();
-ob_end_clean();
-return $templateText;
-?>
