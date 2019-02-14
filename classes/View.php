@@ -2,10 +2,6 @@
 
 class View
 {
-
-    /**
-     * @var []
-     */
     protected $storage;
 
     public function assign(string $name, $value): View

@@ -1,6 +1,5 @@
-<?php $serializedData = ob_get_contents();
-$guestBookRecords = unserialize($serializedData, ['allowed_classes' => true]);
-ob_clean();
+<?php
+$guestBookRecords = $this->storage['records'];
 ?>
     <!doctype html>
     <html lang="ru">
@@ -38,7 +37,7 @@ ob_clean();
         ?>
         <br><br>
         <div class="row">
-            <form action="<?php echo '/01_guestbook/addRecord.php'; ?>" method="post"
+            <form action="/01_guestbook/addRecord.php" method="post"
                   enctype="multipart/form-data">
                 <label>Новая запись:</label><br>
                 <textarea name="message" rows="10" cols="30" placeholder="Запись в книгу"></textarea><br>
@@ -48,8 +47,3 @@ ob_clean();
     </div>
     </body>
     </html>
-
-<?php $templateText = ob_get_contents();
-ob_end_clean();
-return $templateText;
-?>
