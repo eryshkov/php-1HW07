@@ -11,7 +11,7 @@ class News
      */
     protected $newsStorage;
 
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->path = $path;
         $this->newsStorage = $this->load($path);
@@ -30,7 +30,7 @@ class News
         return $this;
     }
 
-    protected function load($path): array
+    protected function load(string $path): array
     {
         $dataArray = file($path, FILE_IGNORE_NEW_LINES);
         $result = [];

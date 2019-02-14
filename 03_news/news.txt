@@ -1,4 +1,4 @@
-My news short 1|*|My news full text 1
-My news short 2|*|My news full text 2
-My news short 3|*|My news full text 3
-My news short 4|*|My news full text 4
+My news 1 short text|*|My news 1 full text. My news 1 full text.
+My news 2 short text|*|My news 2 full text. My news 2 full text.
+My news 3 short text|*|My news 3 full text. My news 3 full text.
+My news 4 short text|*|My news 4 full text. My news 4 full text.
