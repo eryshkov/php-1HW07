@@ -38,7 +38,7 @@ ob_clean();
         ?>
         <br><br>
         <div class="row">
-            <form action="<?php echo GUEST_BOOK_URL_ROOT . 'addRecord.php'; ?>" method="post"
+            <form action="<?php echo '/01_guestbook/addRecord.php'; ?>" method="post"
                   enctype="multipart/form-data">
                 <label>Новая запись:</label><br>
                 <textarea name="message" rows="10" cols="30" placeholder="Запись в книгу"></textarea><br>

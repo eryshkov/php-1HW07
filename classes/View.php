@@ -1,5 +1,4 @@
 <?php
-include_once __DIR__ . '/../constants.php';
 
 class View
 {
@@ -9,11 +8,6 @@ class View
      */
     protected $storage;
 
-    public function __construct(string $name, $value)
-    {
-        $this->assign($name, $value);
-    }
-
     public function assign(string $name, $value): View
     {
         $this->storage[$name] = $value;
@@ -22,20 +16,17 @@ class View
 
     public function render(string $template):string
     {
-        $this->putAtBuffer($template);
-        return include  TEMPLATES_FOLDER . $template;
+        ob_start();
+        $this->display($template);
+        $result = ob_get_contents();
+        ob_end_clean();
+
+        return $result;
     }
 
     public function display(string $template):View
     {
-        echo $this->render($template);
+        require_once $template;
         return $this;
-    }
-
-    protected function putAtBuffer($template):void
-    {
-        ob_start( null,null,PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_REMOVABLE);
-        $data = serialize($this->storage[$template]);
-        echo $data;
     }
 }
