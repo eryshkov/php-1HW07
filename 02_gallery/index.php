@@ -2,13 +2,12 @@
 session_start();
 
 require_once __DIR__ . '/functions.php';
-require_once __DIR__ . '/constants.php';
 require_once __DIR__ . '/../classes/View.php';
 
 $userName = getCurrentUser();
 
-$pathToImagesFolder = IMAGE_FOLDER_PATH;
-$urlToImagesFolder = URL_TO_IMAGE_FOLDER;
+$pathToImagesFolder = __DIR__ . '/img/';
+$urlToImagesFolder = '/02_gallery/img/';
 
 $dirContents = scandir($pathToImagesFolder, SCANDIR_SORT_NONE);
 

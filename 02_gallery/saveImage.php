@@ -3,10 +3,9 @@ session_start();
 
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/classes/Uploader.php';
-require_once __DIR__ . '/constants.php';
 
 if (null === getCurrentUser()) {
-    header('Location: ' . URL_ROOT . 'login.php');
+    header('Location: /02_gallery/login.php');
     exit();
 }
 
@@ -20,9 +19,9 @@ $isImage = $uploadResult['isImage'];
 $imageName = $uploadResult['imageName'];
 
 if (true === $isSuccess) {
-    writeLog(IMAGE_FOLDER_PATH . 'log.txt', $userName, $imageName);
+    writeLog(__DIR__ . '/img/log.txt', $userName, $imageName);
 
-    header('Location:' . URL_ROOT);
+    header('Location: /02_gallery/');
     exit;
 } elseif (false === $isImage) {
     ?>Загружаемый файл не является изображением<?php
