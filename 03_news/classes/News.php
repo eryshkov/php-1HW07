@@ -8,7 +8,7 @@ class News
     /**
      * @var Article[]
      */
-    protected $newsStorage;
+    protected $newsStorage = [];
 
     public function __construct(string $path)
     {

@@ -2,8 +2,8 @@
 
 class Article
 {
-    protected $fullText;
-    protected $shortText;
+    protected $fullText = '';
+    protected $shortText = '';
 
     public function __construct(string $shortText, string $fullText)
     {
