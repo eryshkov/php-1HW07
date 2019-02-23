@@ -14,17 +14,11 @@ $userName = getCurrentUser();
 $imageUploader = new Uploader('image');
 $uploadResult = $imageUploader->upload();
 
-$isSuccess = $uploadResult['success'];
-$isImage = $uploadResult['isImage'];
-$imageName = $uploadResult['imageName'];
+if (true === $uploadResult) {
+    writeLog(__DIR__ . '/img/log.txt', $userName, 'image');
 
-if (true === $isSuccess) {
-    writeLog(__DIR__ . '/img/log.txt', $userName, $imageName);
-
-    header('Location: /02_gallery/');
+    header('Location:' . '/02_gallery/');
     exit;
-} elseif (false === $isImage) {
-    ?>Загружаемый файл не является изображением<?php
 } else {
-    ?>Не удалось сохранить файл на сервере<?php
+    ?>Не удалось сохранить этот файл на сервере<?php
 }
