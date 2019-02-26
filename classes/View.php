@@ -10,7 +10,7 @@ class View
         return $this;
     }
 
-    public function render(string $template):string
+    public function render(string $template): string
     {
         ob_start();
         $this->display($template);
@@ -20,12 +20,12 @@ class View
         return $result;
     }
 
-    public function display(string $template):View
+    public function display(string $template): View
     {
         foreach ($this->storage as $key => $value) {
             $$key = $value;
         }
-        require_once $template;
+        require $template;
         return $this;
     }
 }
