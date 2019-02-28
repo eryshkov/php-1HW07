@@ -3,7 +3,7 @@ require_once __DIR__ . '/Article.php';
 
 class News
 {
-    protected $path;
+    protected $path = '';
 
     /**
      * @var Article[]
