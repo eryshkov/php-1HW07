@@ -13,19 +13,30 @@
     <title>Gallery</title>
 </head>
 <body>
+<p></p>
 <div class="container">
-    <p></p>
-    <p>
-        <?php if (null !== $userName) {
-            ?>Welcome back, <strong><?php echo $userName; ?></strong><?php
-        } else {
-            ?><a href="/02_gallery/login.php">Sign in</a> <?php
-        } ?>
-    </p>
+    <div class="row">
+        <div class="col">
+            <a href="/" class="btn btn-primary">Гостевая книга</a>
+            <a href="/gallery.php" class="btn btn-primary">Галерея</a>
+            <a href="/news.php" class="btn btn-primary">Новости</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                <?php if (null !== $userName) {
+                    ?>Welcome back, <strong><?php echo $userName; ?></strong><?php
+                } else {
+                    ?><a href="/login.php">Sign in</a> <?php
+                } ?>
+            </p>
+        </div>
+    </div>
     <div class="row">
         <?php
         $pathToImagesFolder = __DIR__ . '/../img/';
-        $urlToImagesFolder = '/02_gallery/img/';
+        $urlToImagesFolder = '/img/';
 
         foreach ($images as $id => $imageName) {
             ?>
@@ -41,16 +52,17 @@
         }
         ?>
     </div>
-    <br>
-    <br>
     <?php if (null !== $userName) {
         ?>
         <div class="row">
-            <form action="/02_gallery/saveImage.php" method="post" enctype="multipart/form-data">
-                <label>Новая картинка:</label><input type="file" name="image">
-                <br>
-                <button type="submit">Send</button>
-            </form>
+            <div class="col">
+                <p></p>
+                <form action="/saveImage.php" method="post" enctype="multipart/form-data">
+                    <label>Новая картинка:</label><input type="file" name="image">
+                    <br>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div><?php
     } ?>
 </div>

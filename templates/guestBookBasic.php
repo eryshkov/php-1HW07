@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col">
             <a href="/" class="btn btn-primary">Гостевая книга</a>
-            <a href="/02_gallery/" class="btn btn-primary">Галерея</a>
+            <a href="/gallery.php" class="btn btn-primary">Галерея</a>
             <a href="/news.php" class="btn btn-primary">Новости</a>
         </div>
     </div>

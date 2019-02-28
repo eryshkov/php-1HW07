@@ -2,10 +2,10 @@
 session_start();
 
 require_once __DIR__ . '/functions.php';
-require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/classes/View.php';
 
 if (null !== getCurrentUser()) {
-    header('Location: /02_gallery/');
+    header('Location: /gallery.php');
     exit();
 }
 
@@ -22,7 +22,7 @@ if (isset($_POST['password'])) {
 
 if (checkPassword($userName, $userPassword)) {
     $_SESSION['user'] = $userName;
-    header('Location: /02_gallery/');
+    header('Location: /gallery.php');
     exit();
 }
 

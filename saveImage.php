@@ -5,7 +5,7 @@ require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/classes/Uploader.php';
 
 if (null === getCurrentUser()) {
-    header('Location: /02_gallery/login.php');
+    header('Location: /login.php');
     exit();
 }
 
@@ -17,7 +17,7 @@ $uploadResult = $imageUploader->upload();
 if (true === $uploadResult) {
     writeLog(__DIR__ . '/img/log.txt', $userName, 'image');
 
-    header('Location:' . '/02_gallery/');
+    header('Location:' . '/gallery.php');
     exit;
 } else {
     ?>Не удалось сохранить этот файл на сервере<?php
