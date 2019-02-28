@@ -26,7 +26,7 @@
         <div class="col">
             <p>
                 <?php if (null !== $userName) {
-                    ?>Welcome back, <strong><?php echo $userName; ?></strong><?php
+                    ?>Привет, <strong><?php echo $userName; ?></strong>!<?php
                 } else {
                     ?><a href="/login.php">Sign in</a> <?php
                 } ?>
