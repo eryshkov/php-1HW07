@@ -16,7 +16,18 @@
     <body>
     <p></p>
     <div class="container">
-        <h1><?php echo $article->getShortText(); ?></h1>
+        <div class="row">
+            <div class="col">
+                <a href="/" class="btn btn-primary">Гостевая книга</a>
+                <a href="/02_gallery/" class="btn btn-primary">Галерея</a>
+                <a href="/news.php" class="btn btn-primary">Новости</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1><?php echo $article->getShortText(); ?></h1>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <?php echo $article->getFullText(); ?>

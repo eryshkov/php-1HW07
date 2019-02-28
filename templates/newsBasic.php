@@ -16,12 +16,26 @@
 <body>
 <p></p>
 <div class="container">
-    <h1>News</h1>
-    <?php foreach ($articles as $newsID => $article) {
+    <div class="row">
+        <div class="col">
+            <a href="/" class="btn btn-primary">Гостевая книга</a>
+            <a href="/02_gallery/" class="btn btn-primary">Галерея</a>
+            <a href="/news.php" class="btn btn-primary">Новости</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1>Новости</h1>
+        </div>
+    </div>
+    <?php
+    $articles = $news->getNews();
+
+    foreach ($articles as $newsID => $article) {
         ?>
         <div class="row">
             <div class="col">
-                <a href="<?php echo '/03_news/article.php?id=' . $newsID; ?>">
+                <a href="<?php echo '/article.php?id=' . $newsID; ?>">
                     News <?php echo $newsID + 1; ?></a>
                 <div class="row">
                     <div class="col">
