@@ -22,6 +22,7 @@
         <h2>Последние записи:</h2>
     </div>
     <?php
+    $guestBookRecords = $guestBook->getData();
     foreach ($guestBookRecords as $record) {
         ?>
         <div class="row">
