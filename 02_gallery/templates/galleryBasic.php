@@ -24,6 +24,9 @@
     </p>
     <div class="row">
         <?php
+        $pathToImagesFolder = __DIR__ . '/../img/';
+        $urlToImagesFolder = '/02_gallery/img/';
+
         foreach ($images as $id => $imageName) {
             ?>
             <?php echo PHP_EOL; ?>
