@@ -28,11 +28,6 @@
             <h1>Гостевая книга.</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <h2>Последние записи:</h2>
-        </div>
-    </div>
     <?php
     $guestBookRecords = $guestBook->getData();
     foreach ($guestBookRecords as $record) {
