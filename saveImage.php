@@ -3,6 +3,7 @@ session_start();
 
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/classes/Uploader.php';
+require_once __DIR__ . '/classes/View.php';
 
 if (null === getCurrentUser()) {
     header('Location: /login.php');
@@ -20,5 +21,7 @@ if (true === $uploadResult) {
     header('Location:' . '/gallery.php');
     exit;
 } else {
-    ?>Не удалось сохранить этот файл на сервере<?php
+    $view = new View();
+    $view->assign('info', 'Не удалось сохранить этот файл на сервере');
+    $view->display(__DIR__ . '/templates/info.php');
 }
