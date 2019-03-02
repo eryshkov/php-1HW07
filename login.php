@@ -9,22 +9,21 @@ if (null !== getCurrentUser()) {
     exit();
 }
 
-if (isset($_POST['login'])) {
+if (isset($_POST['login'], $_POST['password'])) {
     $userName = $_POST['login'];
-} else {
-    $userName = '';
-}
-if (isset($_POST['password'])) {
     $userPassword = $_POST['password'];
-} else {
-    $userPassword = '';
-}
-
-if (checkPassword($userName, $userPassword)) {
-    $_SESSION['user'] = $userName;
-    header('Location: /gallery.php');
-    exit();
 }
 
 $view = new View();
+
+if (isset($userName, $userPassword)) {
+    if (checkPassword($userName, $userPassword)) {
+        $_SESSION['user'] = $userName;
+        header('Location: /gallery.php');
+        exit();
+    } else {
+        $view->assign('info', 'Имя пользователя и пароль не верные');
+    }
+}
+
 $view->display(__DIR__ . '/templates/galleryLogin.php');

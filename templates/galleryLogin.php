@@ -22,6 +22,17 @@
             <a href="/news.php" class="btn btn-primary">Новости</a>
         </div>
     </div>
+    <?php
+    if (isset($info)) {
+        ?>
+        <div class="row mt-1 md-1">
+            <div class="col-auto">
+                <p class="alert-danger"><?php echo $info; ?></p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
     <div class="row">
         <div class="col">
             <p></p>
