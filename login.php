@@ -22,7 +22,7 @@ if (isset($userName, $userPassword)) {
         header('Location: /gallery.php');
         exit();
     } else {
-        $view->assign('info', 'Имя пользователя и пароль не верные');
+        $view->assign('info', 'Имя пользователя и пароль неверные');
     }
 }
 
