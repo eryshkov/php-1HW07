@@ -21,7 +21,7 @@ class News
         $result = [];
         foreach ($this->newsStorage as $article) {
             $line = implode(FILE_DELIMITER, [$article->getShortText(),
-                                                        $article->getFullText()]);
+                                             $article->getFullText()]);
             $result[] = $line;
         }
         file_put_contents($this->path, implode(PHP_EOL, $result));

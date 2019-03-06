@@ -11,12 +11,12 @@ class Article
         $this->fullText = $fullText;
     }
 
-    public function getFullText():string
+    public function getFullText(): string
     {
         return $this->fullText;
     }
 
-    public function getShortText():string
+    public function getShortText(): string
     {
         return $this->shortText;
     }
