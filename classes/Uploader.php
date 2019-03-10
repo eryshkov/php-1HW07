@@ -3,7 +3,7 @@
 class Uploader
 {
     protected $formFieldName = '';
-    protected $savedImage = '';
+    protected $savedFile = '';
 
     public function __construct($formFieldName)
     {
@@ -13,9 +13,9 @@ class Uploader
     protected function isUploaded(): bool
     {
         if (isset($_FILES[$this->formFieldName])) {
-            $savedImage = $_FILES[$this->formFieldName];
+            $savedFile = $_FILES[$this->formFieldName];
 
-            if (0 === $savedImage['error']) {
+            if (0 === $savedFile['error']) {
                 return true;
             }
         }
@@ -26,21 +26,40 @@ class Uploader
     /**
      * @return bool
      */
-    public function upload(): bool
+    public function uploadImage(): bool
     {
         if ($this->isUploaded()) {
-            $this->savedImage = $_FILES[$this->formFieldName];
+            $this->savedFile = $_FILES[$this->formFieldName];
 
-            $savedImagePath = $this->savedImage['tmp_name'];
-            $imageName = $this->savedImage['name'];
+            $savedImagePath = $this->savedFile['tmp_name'];
+            $imageName = $this->savedFile['name'];
+            $imageMimeType = $this->savedFile['type'];
 
-            $imageMimeType = $this->savedImage['type'];
             $isImage = strpos($imageMimeType, 'image') === 0;
 
             if (true === $isImage) {
-                move_uploaded_file($savedImagePath, __DIR__ . '/../img/' . $imageName);
-                return true;
+                return move_uploaded_file($savedImagePath, __DIR__ . '/../img/' . $imageName);
             }
+        }
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function upload(): bool
+    {
+        if ($this->isUploaded()) {
+            $this->savedFile = $_FILES[$this->formFieldName];
+
+            $savedFilePath = $this->savedFile['tmp_name'];
+            $fileName = $this->savedFile['name'];
+
+            $destFilePath = __DIR__ . '/../file_storage/' . $fileName;
+
+            $result = move_uploaded_file($savedFilePath, $destFilePath);
+
+            return $result;
         }
 
         return false;
