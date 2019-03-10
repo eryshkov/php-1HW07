@@ -12,11 +12,7 @@ if (null !== getCurrentUser()) {
 if (isset($_POST['login'], $_POST['password'])) {
     $userName = $_POST['login'];
     $userPassword = $_POST['password'];
-}
 
-$view = new View();
-
-if (isset($userName, $userPassword)) {
     if (checkPassword($userName, $userPassword)) {
         $_SESSION['user'] = $userName;
         header('Location: /gallery.php');
@@ -26,4 +22,5 @@ if (isset($userName, $userPassword)) {
     }
 }
 
+$view = new View();
 $view->display(__DIR__ . '/templates/galleryLogin.php');
