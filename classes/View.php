@@ -20,12 +20,11 @@ class View
         return $result;
     }
 
-    public function display(string $template): View
+    public function display(string $template): void
     {
         foreach ($this->storage as $key => $value) {
             $$key = $value;
         }
         require $template;
-        return $this;
     }
 }

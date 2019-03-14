@@ -57,4 +57,13 @@ class News
 
         return $this;
     }
+
+    public function getArticleBy($id): ?Article
+    {
+        if (isset($id, $this->newsStorage[$id])) {
+            return $this->newsStorage[$id];
+        }
+
+        return null;
+    }
 }

@@ -5,14 +5,15 @@ require_once __DIR__ . '/classes/View.php';
 
 $news = new News(__DIR__ . '/news.txt');
 
-$articleNumber = $_GET['id'];
-$newsArticles = $news->getNews();
+if (isset($_GET['id'])) {
+    $article = $news->getArticleBy($_GET['id']);
 
-if (isset($newsArticles[$articleNumber])) {
-    $article = $newsArticles[$articleNumber];
-
-    $view = new View();
-    $view->assign('article', $article);
-    $view->display(__DIR__ . '/templates/newsArticle.php');
+    if (isset($article)) {
+        $view = new View();
+        $view->assign('article', $article);
+        $view->display(__DIR__ . '/templates/newsArticle.php');
+    } else {
+        header('Location: ' . '/news.php');
+        exit();
+    }
 }
-
