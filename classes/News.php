@@ -20,7 +20,7 @@ class News
     {
         $result = [];
         foreach ($this->newsStorage as $article) {
-            $line = implode(FILE_DELIMITER, [$article->getShortText(),
+            $line = implode('|*|', [$article->getShortText(),
                                              $article->getFullText()]);
             $result[] = $line;
         }
